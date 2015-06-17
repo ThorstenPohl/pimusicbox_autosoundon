@@ -1,1 +1,2 @@
-'5 standby' |  cec-client -s
+#!/bin/bash
+echo "standby 5" |  cec-client -s
