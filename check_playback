@@ -1,0 +1,9 @@
+#!/bin/bash
+STATE=$(curl -sd '{"jsonrpc": "2.0", "id": 1, "method": "core.playback.get_state"}' http://localhost:6680/mopidy/rpc)
+PLAYINGSTATE='{"jsonrpc": "2.0", "id": 1, "result": "playing"}'
+echo $STATE
+if [ "$STATE" = "$PLAYINGSTATE" ]; then
+  echo "playing"
+else
+  echo "not_playing"
+fi
