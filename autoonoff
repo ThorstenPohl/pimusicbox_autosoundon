@@ -1,19 +1,22 @@
 #!/bin/bash
+homedir="/root/pimusicbox_autosoundon"
+echo $homedir
+statefile="$homedir/lastplayback.state"
 STATE=$(curl -sd '{"jsonrpc": "2.0", "id": 1, "method": "core.playback.get_state"}' http://localhost:6680/mopidy/rpc)
 PLAYINGSTATE='{"jsonrpc": "2.0", "id": 1, "result": "playing"}'
-echo $STATE
-lastplayback=`cat lastplayback.state`
+#echo "$STATE" >> "$homedir/statehistory"
+lastplayback=$(cat "$statefile") 
 echo $lastplayback
 if [ "$STATE" = "$PLAYINGSTATE" ]; then
-  echo "playing" > lastplayback.state
+  echo "playing" > "$statefile"
   if [[ "$lastplayback" != "playing" ]]; then
      echo "I should start the stereo"
-     source ./soundon
+     source "$homedir/soundon"
   fi
 else
-  echo "not_playing" > lastplayback.state
+  echo "not_playing" > "$statefile"
   if [[ "$lastplayback" != "not_playing" ]]; then
      echo "I should stop the stereo"
-     source ./soundoff
+     source "$homedir/soundoff"
   fi
 fi

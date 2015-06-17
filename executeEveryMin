@@ -1,0 +1,13 @@
+echo "done" >> cron.txt
+(sleep 5 && ~/pimusicbox_autosoundon/autoonoff ) &
+(sleep 10 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 15 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 20 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 25 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 30 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 35 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 40 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 45 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 50 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 55 && ~/pimusicbox_autosoundon/autoonoff) &
+(sleep 60 && ~/pimusicbox_autosoundon/autoonoff) &
